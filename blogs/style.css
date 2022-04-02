@@ -1,0 +1,479 @@
+@import url('../style.css');
+@import url('../index.html');
+
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@700&family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('../common/all.css');
+
+:root{
+    --bg-color-dark: #393b44;
+    --sec-bg-color-dark: #4b5ea8;
+    --ter-bg-color-dark: #7a7ba8;
+    --pri-text-dark: #ebebeb;
+    --sec-text-dark: #cacaca;
+    --ter-text-dark: #dbdbdb;
+
+    --bg-color: #ececec;
+    --sec-bg-color: #4b5ea8;
+    --ter-bg-color: #8d96e6;
+    --pri-text: #1d1d1d;
+    --sec-text: #363636;
+    --ter-text: #353535;
+
+    --heading: Uni Sans;
+    --content: Glacial;
+    --Abel: Abel;
+    --Josefin: Josefin;
+    --Livvic: Livvic;
+    --nav-items: 'Khula', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-image: url(./bg-img.png);
+}
+
+h1{
+    user-select: none;
+    color: var(--pri-text);
+    font-size: 48px;
+    line-height: 1.3;
+}
+p{
+    color: var(--pri-text);
+    font-size: 22px;
+    line-height: 1.5;
+    padding: 10px 0;
+}
+hr{
+    margin: 75px 30px 0 30px;
+}
+.laptop-hide{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    body{
+        background: unset;
+    }
+    h1{
+        font-size: 32px;
+        line-height: 1.1;
+    }
+    p{
+        font-size: 18px;
+        line-height: 1.3;
+    }
+    hr{
+        margin: 10px 5px !important;
+        margin-top: 20px !important;
+    }
+    .laptop-hide{
+        display: unset;
+    }
+    .mobile-hide{
+        display: none;
+    }
+}
+
+/*------------------------------- Navigation Menu -------------------------------*/
+nav{
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: transparent;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    position: fixed;
+    transition: .5s;
+}
+nav.nav-scroll{
+    background-color: var(--sec-bg-color);
+}
+nav.nav-scroll .logo.for-poem h1 a, nav.nav-scroll ul.for-poem li a{
+    color: #fff;
+}
+nav .logo{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    margin: 0 5%;
+    text-transform: uppercase;
+}
+nav .logo h1{
+    font-size: 25px;
+}
+nav .logo h1 a{
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--Josefin);
+}
+nav ul{
+    z-index: 11111;
+    right: 0;
+    list-style: none;
+    height: 60px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    border-radius: 0 0 0 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    font-family: var(--nav-items);
+    transition: .3s ease-in-out;
+    padding: 4px 8px;
+}
+nav .logo.for-poem h1 a, nav ul.for-poem li a{
+    color: var(--sec-text);
+}
+nav ul a:hover::after{
+    width: unset;
+}
+nav ul a:hover{
+    text-shadow: 2px 2px 2px rgb(36, 36, 36);
+    color: #fff;
+}
+nav ul.for-poem li a:hover{
+    text-shadow: 2px 2px 4px rgb(65, 65, 65);
+}
+
+#nav{
+    position: absolute;
+    top: -60px;
+}
+input{
+    display: none;
+}
+nav .icon{
+    display: none;
+    position: fixed;
+    top: 16px;
+    right: 5px;
+    z-index: 1111;
+}
+nav .icon .bar{
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+
+
+@media screen and (max-width: 768px) {
+    nav{
+        background-color: var(--sec-bg-color);
+    }
+    nav .logo{
+        width: 100%;
+        margin: 0;
+    }
+    nav .logo h1{
+        padding: 0 10px;
+    }
+    nav ul{
+        float: none;
+        z-index: 9;
+        flex-direction: column;
+        left: 0;
+        right: 0;
+        top: 60px;
+        bottom: 100%;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 0;
+        transition: .5s;
+    }
+    nav .logo.for-poem h1 a, nav ul.for-poem li a{
+        color: #fff;
+    }
+    nav .icon{
+        display: block;
+    }
+    nav :checked ~ ul{
+        bottom: 0;
+    }
+    nav :checked ~ .icon .bar:nth-child(1) {
+        transform: translateY(8px) rotate(135deg);
+    }
+    nav :checked ~ .icon .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-135deg);
+    }
+    nav :checked ~ .icon .bar:nth-child(2) {
+        opacity: 0;
+    }
+}
+/*---------------X--------------- Navigation Menu ---------------X---------------*/
+
+body > main{
+    background: rgba(222, 222, 222, 0.45);
+    height: 100%;
+}
+body > main.for-poem{
+    background: unset;
+}
+/*------------------------------- Blog -------------------------------*/
+.bg-img{
+    width: 100%;
+    height: 75vh;
+    background: no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-img h2{
+    margin-top: -180px;
+    color: #f1f1f1;
+    letter-spacing: 10px;
+    font-size: 128px;
+    font-family: 'Limelight', cursive;
+}
+
+.blog{
+    background-color: #f1f1f1;
+    width: calc(100vw - 300px);
+    margin: auto;
+    margin-top: -250px;
+    z-index: 1;
+    box-shadow: -.5px -.5px 8px #636363, .5px .5px 8px #636363;
+    padding: 60px 40px;
+}
+.blog .title, .poem .title{
+    height: 100%;
+    margin: 10px;
+}
+.blog .content{
+    margin: 60px 10px;
+    margin-bottom: 0;
+    transform: translateY(0);
+}
+.poem .content{
+    margin: 40px 10px;
+    margin-bottom: 0;
+    transform: translateY(0);
+}
+.poem{
+    background-color: #f1f1f1;
+    width: calc(100vw - 300px);
+    margin: 150px auto 0 auto;
+    box-shadow: -.5px -.5px 8px #636363, .5px .5px 8px #636363;
+    padding: 60px 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .bg-img{
+        height: 60vh !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bg-img h2{
+        font-size: 48px !important;
+        margin-top: -100px !important;
+    }
+    .blog{
+        border-radius: 30px 30px 5px 5px;
+        width: 100vw !important;
+        margin: 0;
+        margin-top: -50px;
+        box-shadow: none;
+        padding: 10px 5px;
+    }
+    .blog .title{
+        z-index: inherit;
+        margin: 75px 10px;
+        padding-top: auto;
+    }
+    .blog .content, .poem .content{
+        position: relative;
+        z-index: inherit;
+        margin: 0 10px;
+    }
+    .poem{
+        background: #fff;
+        width: 100vw !important;
+        margin: 0;
+        box-shadow: none;
+        padding: 10px 5px;
+        margin-top: unset;
+    }
+    .poem .title{
+        z-index: inherit;
+        margin: 100px 10px 30px 10px;
+    }
+}
+/*---------------X--------------- Blog ---------------X---------------*/
+
+/*------------------------------- Suggestions -------------------------------*/
+.suggestions{
+    margin: 0 50px;
+    padding: 20px 0;
+}
+.suggestions h1{
+    color: #222222;
+    font-size: 36px;
+}
+.posts{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+.posts .blog-post{
+    width: 400px;
+    margin-right: 50px;
+}
+.posts .blog-post.last{
+    margin-right: 0%;
+}
+.posts .blog-post img{
+    height: 200px;
+    width: 350px;
+}
+.posts .blog-post a{
+    text-decoration: none;
+}
+.posts .blog-post a h3{
+    color: var(--sec-text);
+    font-family: var(--content);
+}
+
+@media screen and (max-width: 768px) {
+    .suggestions{
+        margin: 0 10px;
+    }
+    .suggestions h1{
+        font-size: 26px;
+    }
+    .posts{
+        flex-direction: column;
+    }
+    .posts .blog-post{
+        width: 100%;
+        padding-bottom: 40px;
+        margin-right: 0;
+    }
+    .posts .blog-post img{
+        width: 100%;
+        height: auto;
+    }
+}
+/*---------------X--------------- Suggestions ---------------X---------------*/
+
+/*------------------------------- Footer -------------------------------*/
+.top{
+    display: block;
+    position: relative;
+}
+.top a i{
+    position: absolute;
+    right: 20px;
+    color: #f1f1f1;
+    font-size: 32px;
+    line-height: 50px;
+}
+
+footer{
+    user-select: none;
+    height: 50px;
+    background: #0f0f0f;
+    color: #e9df50;
+    font-family: var(--Livvic);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .credit a{
+    text-decoration: underline;
+    color: inherit;
+}
+footer .rights span{
+    color: #e9df50;
+}
+@media screen and (max-width: 768px){
+    .top a i{
+        right: 10px;
+        font-size: 24px;
+        line-height: 70px;
+    }
+    footer{
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        margin: 0;
+        font-weight: unset;
+    }
+}
+/*---------------X--------------- Footer --------------X----------------*/
+
+/*----------------------------------------- Dark Scheme -----------------------------------------*/
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: var(--bg-color-dark);
+    }
+    body > main{
+        background-color: var(--bg-color-dark);
+    }
+    .bg-img{
+        border-bottom: 1px solid #f1f1f1;
+    }
+    .blog, .poem{
+        background-color: var(--bg-color-dark);
+        box-shadow: -.5px -.5px 8px #818181;
+    }
+    h1, h2{
+        color: var(--pri-text-dark);
+    }
+    .blog .title h1, .poem .title h1{
+        color: #fff;
+    }
+    h3, h5, span, p{
+        color: var(--pri-text-dark);
+    }
+    nav.nav-scroll{
+        background-color: var(--sec-bg-color-dark);
+    }
+    nav .logo.for-poem h1 a, nav ul.for-poem li a{
+        color: #fff;
+    }
+    .suggestions h1{
+        color: var(--pri-text-dark);
+    }
+    .posts .blog-post a h3{
+        color: var(--sec-text-dark);
+    }
+
+    @media screen and (max-width: 768px){
+        nav .logo{
+            background-color: var(--sec-bg-color-dark) !important;
+        }
+        nav ul{
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+        .blog, .poem{
+            box-shadow: none;
+        }
+    }
+}
+/*---------------------X------------------- Dark Scheme ---------------------X-------------------*/
