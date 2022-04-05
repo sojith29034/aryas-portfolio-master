@@ -287,6 +287,9 @@ nav .icon .bar{
 .intro{
     height: calc(100vh - 60px);
     display: flex;
+    background-image: url(./bg.png);
+    background-position: right;
+    background-repeat: no-repeat;
 }
 .text{
     width: 50%;
