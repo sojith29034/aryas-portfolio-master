@@ -40,7 +40,7 @@ $('#slider').owlCarousel({
     }
 })
 
-document.querySelector('footer .credit .myLink').href='https://www.instagram.com/sojith.sunny/';
+document.querySelector('footer .credit .myLink').href='https://github.com/sojith29034';
 
 // to change links:
 // this is one link, 
